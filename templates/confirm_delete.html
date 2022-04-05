@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+
+    #cd{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0;
+        padding: 4%;
+
+    }
+    .mainform{
+        justify-content: center;
+        background: lightgreen;
+        align-items: center;
+        display: flex;
+        padding: 3%;
+    }
+
+    #cd input,#cd h1{
+        background: transparent;
+        color: white;
+        padding: 2%;
+        border-radius: 2rem;
+        border: none;
+        transition: all .3s ease-in;
+        box-shadow: 0 0 10px 0 black;
+    
+    }
+    #cd input:hover{
+        transform: scale(110%);
+    }
+    
+</style>
+<div class="mainform">
+<form id="cd" method="post">{% csrf_token %}
+     
+ 
+ 
+    <h1 >Are you sure you want to delete "<b><i><u >{{ object }}</u></i></b>"?</h1>
+     
+     
+     <div class="flex gap-6 p-2 justify-between  items-center">
+     <input  type="submit" value="Confirm">
+    <a  href="/"> <input   type="button" value="cancel"></a>
+</div>
+</form>
+</div>
+{% endblock content %}

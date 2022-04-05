@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+{% for i in post_list%}
+<section class="text-gray-600 body-font overflow-hidden ">
+    <div class="container px-5 py-14 mx-auto ">
+      <div class="-my-8 divide-y-2 divide-gray-100">
+        <div class="  py-8 flex flex-wrap md:flex-nowrap border-2 p-2 hover:shadow-xl shadow-blac">
+          
+          <div class="md:flex-grow k">
+            <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{i.title}}</h2>
+            <p class="leading-relaxed">{{ i.author }} | {{ i.created_on}}</p>
+            <p class="leading-relaxed">{{i.content|slice:":200"}}</p>
+            <a href="{%url 'post_detail' i.pk%}" class="text-indigo-500 inline-flex items-center mt-4">Read More
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </section>
+  {%endfor%}
+  {% if is_paginated %}
+        <div class="mx-10 ">
+            <span class="page-links ">
+                {% if page_obj.has_previous %}
+                <a class="border-2 bg-red-400  p-2 rounded-lg mx-2" href="/postlist/?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current text-black">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a class="border-2 bg-green-400 p-2 rounded-lg mx-2" href="/postlist/?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+
+
+
+{%endblock%}

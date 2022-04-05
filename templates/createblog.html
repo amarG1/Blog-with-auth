@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<div class="p-3 justify-center items-center flex">
+    <form  class= " bg-gray-300 flex flex-wrap flex-col gap-4 justify-center items-center shadow-inner shadow-black p-4 rounded-xl" method="POST" enctype="multipart/form-data"  >
+     
+        <!-- Security token -->
+        {% csrf_token %}
+     
+        <!-- Using the formset -->
+    
+        {%for field in form%}
+        <div class=" ">
+            <tr>
+                <td>{{ field.label }}</td>
+                <td>{{ field }}</td>
+                <td>{{ field.errors }}</td>
+            </tr>
+        </div>
+        <hr>
+        {%endfor%}
+         
+        <input class="bg-green-400 hover:bg-green-600 cursor-pointer  rounded-xl p-2  flex" type="submit" value="Submit">
+    </form>
+    
+    </div>
+
+{%endblock%}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>APGENIX</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <meta name="google" content="notranslate" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous" /> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.tailwindcss.com"></script>
+
+    </head>
+
+    <body>
+        
+    <style>
+        .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+    </style>
+
+
+
+    <!-- Header -->
+
+
+    <header class="text-gray-600 body-font text-white bg-gray-900 ">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <img class="w-10 h-10 rounded-full" src="/media/media/uploads/2021_10_03_20_22_IMG_9016_bp9hhaH.PNG" alt="">
+            <a href="/"><span class="ml-3 text-xl hover:text-fuchsia-400">APGENIX</span></a>
+          </a>
+          <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+            <a href="{%url 'post'%}" class="mr-5 hover:text-fuchsia-400">Blog</a>
+            <a href="{%url 'addpost'%}" class="mr-5 hover:text-fuchsia-400">Add</a>
+            <a href="{%url 'logout'%}" class="mr-5 hover:text-fuchsia-400">Logout</a>
+            <a class="mr-5 hover:text-fuchsia-400">Fourth Link</a>
+          </nav>
+          <!-- <button class="inline-flex items-center bg-black border-0 py-1 px-3 focus:outline-none hover: rounded-lg text-fuchsia-400 mt-4 md:mt-0">Hello,<b class="text-white" >{{user.first_name}}{{user.last_name}}</b>
+            
+          </button> -->
+
+          <div class="">
+
+            <div class="dropdown inline-block relative">
+              <button class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
+                <span class="mr-1">{{user}}</span>
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+              </button>
+              <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">One</a></li>
+                <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Two</a></li>
+                <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="{%url 'logout'%}">Logout</a></li>
+              </ul>
+            </div>
+          
+          </div>
+          
+          
+        </div>
+        
+      </header>
+      
+
+
+
+
+
+       
+        
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+        <!-- Footer -->
+
+
+        <footer class="text-gray-600 body-font bg-gray-900 mt-4 ">
+            <div class=" container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+              <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
+                <img class="w-10 h-10 rounded-full" src="/media/media/uploads/2021_10_03_20_22_IMG_9016_bp9hhaH.PNG" alt="">
+                <span class="ml-3 text-xl">APGENIX</span>
+              </a>
+              <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2020 Tailblocks —
+                <a href="https://twitter.com/poddar_amar" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@Amar</a>
+              </p>
+              <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                <a class="text-gray-500 hover:text-blue-400">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:text-cyan-400">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:text-pink-400">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:text-blue-700">
+                  <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                    <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                  </svg>
+                </a>
+              </span>
+            </div>
+          </footer>
+
+
+
+        <!-- <footer class="py-3 bg-grey">
+            <div class="coloumn1">
+                <ul>
+                    <li><a href=""></a>postlist</li>
+                <li><a href=""></a>createpost</li>
+                <li><a href=""></a>contact</li>
+            </ul></div>
+            <div class="coloumn2">
+                <ul>
+                    <li class="fa-brands fa-instagram"><a href=""></a></li>
+                <li class="fa-brands fa-twitter"><a href=""></a></li>
+                <li class="fa-brands fa-youtube"><a href=""></a></li>
+            </ul></div>
+            
+
+        </footer> -->
+    </body>
+</html>
